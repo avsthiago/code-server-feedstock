@@ -1,5 +1,5 @@
 {% set name = "code-server" %}
-{% set version = "4.23.1" %}
+{% set version = "4.91.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,16 +7,16 @@ package:
 
 source:
   url: https://github.com/cdr/code-server/releases/download/v{{ version }}/code-server-{{ version }}-linux-amd64.tar.gz  # [linux64]
-  sha256: 2a69b9062aaacc746b6fbef6966de56eeb795a88aa2a53d1b97623ecff93d3b0  # [linux64]
+  sha256: 0851ec5cbeef62ee340bd2725cd8863bd84ee1bacc54611cefc812ccbdd0e6e4  # [linux64]
   url: https://github.com/cdr/code-server/releases/download/v{{ version }}/code-server-{{ version }}-linux-arm64.tar.gz  # [aarch64]
-  sha256: d2e18d03a2434bca7f70a25870df3d571283582172410c3ce05b1bb5bba1a71b  # [aarch64]
-  url: https://github.com/cdr/code-server/releases/download/v{{ version }}/code-server-{{ version }}-macos-amd64.tar.gz  # [osx]
-  sha256: 152e3bc287cec6187a832c3970e17dd201671501ca26b6b48355a0e10e1276b6  # [osx]
+  sha256: 799b47dbcc3e75c3b743279dd751173a3676da47fbc56f42e49ae938a169067b  # [aarch64]
+  url: https://github.com/cdr/code-server/releases/download/v{{ version }}/code-server-{{ version }}-macos-arm64.tar.gz  # [osx-arm64]
+  sha256: 779b9ccff907df5746d1160ecc2b3443d6f33b47f292d34483b7402b264a2f28  # [osx-arm64]
   folder: code-server
 
 build:
-  number: 2
-  binary_relocation: false  # [osx]
+  number: 0
+  binary_relocation: false  # [osx-arm64]
   skip: true  # [win]
 
 requirements:
@@ -32,7 +32,7 @@ requirements:
 test:
   commands:
     - code-server --help
-    - $CONDA_PREFIX/share/code-server/lib/vscode/node_modules/@vscode/ripgrep/bin/rg --version  # [osx]
+    - $CONDA_PREFIX/share/code-server/lib/vscode/node_modules/@vscode/ripgrep/bin/rg --version  # [osx-arm64]
 
 about:
   home: https://github.com/cdr/code-server
