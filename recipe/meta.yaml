@@ -17,7 +17,7 @@ source:
 build:
   number: 0
   binary_relocation: false  # [osx-arm64]
-  skip: true  # [win]
+  skip: true  # [osx and x86_64 or win]
 
 requirements:
   build:
@@ -39,7 +39,7 @@ about:
   license: MIT
   license_family: MIT
   license_file:
-    - code-server/LICENSE
+    - code-server/LICENSE.txt
     - code-server/ThirdPartyNotices.txt
   summary: Run VS Code on a remote server.
 
